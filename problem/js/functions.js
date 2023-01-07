@@ -197,13 +197,11 @@ function create_programme(programme) {
   }
 
 
-
-
-
   parent_new_program.appendChild(child_new_program);
   parent_new_program.classList.add("programme");
   parent_new_program.style.backgroundImage = `url(./media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal.length, 0)]})`
   program_parent.appendChild(parent_new_program);
+
   child_new_program.innerHTML = `<h1>${programme.name}</h1>
     <p>${info.uni}</p>
     <p>${info.city}, ${info.country}</p>
@@ -236,7 +234,6 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
-
 
 
   /*
