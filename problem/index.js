@@ -12,7 +12,9 @@
 
 */
 
-
+create_filter_element({
+  class: "selected", parent: document.querySelector("#country_filter ul"), textContent: "hello"
+})
 
 // Create Filter Elements
 create_levels_filter();
