@@ -183,7 +183,6 @@ function create_language_filter() {
 // G / VG (see details in specification)
 // CODE according to specifications
 function create_programme(programme) {
-
   let parent_new_program = document.createElement("div");
   let child_new_program = document.createElement("li");
   let program_parent = document.querySelector("#programmes ul");
