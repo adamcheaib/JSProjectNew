@@ -4,6 +4,7 @@
 function click_filter_element(event) {
   event.target.classList.toggle("selected");
   update_programmes()
+
   /*
     ARGUMENTS
       event: event-object created when user clicks on one of the filter elements.
@@ -193,7 +194,7 @@ function create_programme(programme) {
     level: LEVELS[programme.levelID - 1].name,
     subject: SUBJECTS[programme.subjectID].name,
     language: LANGUAGES[programme.languageID].name,
-    background: `url(./media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal.length, 0)]}`
+    background: `url(./media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal.length, 0)]}`,
   };
 
 
@@ -237,6 +238,12 @@ function update_programmes() {
   let old_programs = document.querySelector("#programmes ul");
   old_programs.innerHTML = "";
   array_each(read_filters(), create_programme)
+  let empty_string = document.querySelector("#programmes p");
+  if (old_programs.innerHTML !== "") {
+    empty_string.style.display = "none"
+  }
+
+  if (old_programs.innerHTML === "") { empty_string.style.display = "block" }
 
   /*
       NO ARGUMENTS
