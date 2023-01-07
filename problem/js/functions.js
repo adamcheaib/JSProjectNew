@@ -105,7 +105,25 @@ function toggle_cities(event) {
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
 function create_countries_cities_filters() {
+  /*
+    ARGUMENT
+      The function does take any arguments.
+  
+    SIDE-EFFECTS
+      The function creates country filter containers and then creates filter elements for 
+  */
+
   function create_country(country) {
+    /*
+        ARGUMENT
+          The function takes an object as argument.
+    
+        SIDE-EFFECTS
+          The function creates a container using an object from the COUNTRIES array.
+    
+        NO RETURN VALUE
+    */
+
     const dom = document.createElement("div");
     dom.classList.add("country");
     dom.classList.add("filter_container");
@@ -125,7 +143,17 @@ function create_countries_cities_filters() {
     array_each(cities, create_city);
   }
   function create_city(city) {
-
+    /*
+        ARGUMENTS
+          The functions take an object as an argument.
+    
+        SIDE-EFFECTS
+          The function creates a filter-element by using the create_filter_element and the object's keys'
+          as values for the arguments in create_filter_element. The created filter elements are then
+          appended to the matching countries.
+    
+        NO RETURN VALUE
+    */
     const dom = create_filter_element({
       parent: document.querySelector(`#country_${city.countryID} > ul`),
       class: "selected",
