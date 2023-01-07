@@ -16,6 +16,8 @@ create_filter_element({
   class: "selected", parent: document.querySelector("#country_filter ul"), textContent: "hello"
 })
 
+array_each(PROGRAMMES, create_programme)
+
 // Create Filter Elements
 create_levels_filter();
 create_subjects_filter();
