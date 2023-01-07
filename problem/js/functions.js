@@ -3,7 +3,7 @@
 // CODE According to specification
 function click_filter_element(event) {
   event.target.classList.toggle("selected");
-
+  update_programmes()
   /*
     ARGUMENTS
       event: event-object created when user clicks on one of the filter elements.
@@ -235,8 +235,9 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
-
-
+  let old_programs = document.querySelector("#programmes ul");
+  old_programs.innerHTML = "";
+  array_each(read_filters(), create_programme)
   /*
       NO ARGUMENTS
  
