@@ -238,6 +238,7 @@ function update_programmes() {
   let old_programs = document.querySelector("#programmes ul");
   old_programs.innerHTML = "";
   array_each(read_filters(), create_programme)
+
   /*
       NO ARGUMENTS
  
