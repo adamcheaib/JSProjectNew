@@ -186,12 +186,16 @@ function create_programme(programme) {
   let parent_new_program = document.createElement("div");
   let child_new_program = document.createElement("li");
   let program_parent = document.querySelector("#programmes ul");
-  let uni = UNIVERSITIES[programme.universityID].name;
-  let city = CITIES[UNIVERSITIES[programme.universityID].cityID].name;
-  let country = COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name;
-  let level = LEVELS[programme.levelID - 1].name;
-  let subject = SUBJECTS[programme.subjectID].name;
-  let language = LANGUAGES[programme.languageID].name;
+
+  let info = {
+    uni: UNIVERSITIES[programme.universityID].name,
+    city: CITIES[UNIVERSITIES[programme.universityID].cityID].name,
+    country: COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name,
+    level: LEVELS[programme.levelID - 1].name,
+    subject: SUBJECTS[programme.subjectID].name,
+    language: LANGUAGES[programme.languageID].name
+  }
+
 
 
 
@@ -201,9 +205,9 @@ function create_programme(programme) {
   parent_new_program.style.backgroundImage = `url(./media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal.length, 0)]})`
   program_parent.appendChild(parent_new_program);
   child_new_program.innerHTML = `<h1>${programme.name}</h1>
-    <p>${uni}</p>
-    <p>${city}, ${country}</p>
-    <p>${level}, ${subject}, ${language}</p>`
+    <p>${info.uni}</p>
+    <p>${info.city}, ${info.country}</p>
+    <p>${info.level}, ${info.subject}, ${info.language}</p>`
 
   /*
 
@@ -232,6 +236,8 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
+
+
 
   /*
       NO ARGUMENTS
