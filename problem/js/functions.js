@@ -83,7 +83,6 @@ function add_group_toggling(filter_container_dom) {
 // VG
 // CODE according to specifications
 function toggle_cities(event) {
-
   /*
 
     ARGUMENTS
