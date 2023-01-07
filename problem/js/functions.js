@@ -193,13 +193,14 @@ function create_programme(programme) {
     country: COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name,
     level: LEVELS[programme.levelID - 1].name,
     subject: SUBJECTS[programme.subjectID].name,
-    language: LANGUAGES[programme.languageID].name
-  }
+    language: LANGUAGES[programme.languageID].name,
+    background: `url(./media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal.length, 0)]}`
+  };
 
 
   parent_new_program.appendChild(child_new_program);
   parent_new_program.classList.add("programme");
-  parent_new_program.style.backgroundImage = `url(./media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal.length, 0)]})`
+  parent_new_program.style.backgroundImage = info.background
   program_parent.appendChild(parent_new_program);
 
   child_new_program.innerHTML = `<h1>${programme.name}</h1>
@@ -208,10 +209,10 @@ function create_programme(programme) {
     <p>${info.level}, ${info.subject}, ${info.language}</p>`
 
   /*
-
+ 
     ARGUMENT
       programme (object): One of the objects from PROGRAMMES
-
+ 
     SIDE-EFFECTS
       This function creates the HTML-element that contains all the information
       about one programme, as seen in the video / image.
@@ -219,13 +220,13 @@ function create_programme(programme) {
       VG: The background image is a random image from among the images of the city
           in which the programme is (via the university)
       G:  No background image required.
-
-
+ 
+ 
       VG: The "see more" interaction must be included.
       G:  The "see more" element is not required. And that information needs not be in place.
-
+ 
     NO RETURN VALUE
-
+ 
   */
 
 }
@@ -238,16 +239,16 @@ function update_programmes() {
 
   /*
       NO ARGUMENTS
-
+ 
       SIDE EFFECTS
         This function updates the programmes shown on the page according to
         the current filter status (which filter elements are selected / unselected).
         It uses the function read_filters to know which programmes need to be included.
-
+ 
         VG: The top images (header) need to be updated here
-
+ 
       NO RETURN VALUE
-
+ 
   */
 
 }
