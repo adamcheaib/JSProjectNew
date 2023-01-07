@@ -27,8 +27,8 @@ function click_filter_element(event) {
 // CODE according to specification
 function create_filter_element(data) {
 
-  let new_filter = document.createElement("li");
   let parent = data.parent;
+  let new_filter = document.createElement("li");
   new_filter.classList.add(data.class);
   new_filter.textContent = data.textContent
   parent.appendChild(new_filter);
