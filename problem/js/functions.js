@@ -2,7 +2,7 @@
 // G
 // CODE According to specification
 function click_filter_element(event) {
-  event.toggle.classList("selected");
+  event.target.toggle.classList("selected");
 
   /*
     ARGUMENTS
