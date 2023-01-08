@@ -215,7 +215,8 @@ function create_programme(programme) {
   let parent_new_program = document.createElement("div");
   let child_new_program = document.createElement("li");
   let child_sun = document.createElement("li");
-  let program_parent = document.querySelector("#programmes ul");
+  let granddad = document.querySelector("#programmes ul");
+  let show_more = document.createElement("li")
 
   let info = {
     uni: UNIVERSITIES[programme.universityID].name,
@@ -231,19 +232,20 @@ function create_programme(programme) {
   let sun_percent = percenter(info.sun_index, 365);
 
 
-  parent_new_program.appendChild(child_new_program);
+  parent_new_program.style.backgroundImage = info.background;
   parent_new_program.classList.add("programme");
-  parent_new_program.style.backgroundImage = info.background
-  program_parent.appendChild(parent_new_program);
-  child_sun.classList.add("bottom_programme")
-  parent_new_program.appendChild(child_sun)
+  child_sun.classList.add("bottom_programme");
+  show_more.classList.add("more_info")
+  granddad.appendChild(parent_new_program);
+  parent_new_program.appendChild(child_new_program);
+  parent_new_program.appendChild(show_more);
+  parent_new_program.appendChild(child_sun);
+
 
   child_new_program.innerHTML = `<h1>${programme.name}</h1>
     <p>${info.uni}</p>
     <p>${info.city}, ${info.country}</p>
     <p>${info.level}, ${info.subject}, ${info.language}</p>`
-
-
   child_sun.innerHTML = `<p>${info.city}, sun-index: ${info.sun_index} (${sun_percent}%)</p>`
 
   /*
