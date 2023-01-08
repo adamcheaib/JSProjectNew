@@ -215,11 +215,13 @@ function create_language_filter() {
 function create_programme(programme) {
   let parent_new_program = document.createElement("div");
   let child_new_program = document.createElement("li");
+  let child_sun = document.createElement("li");
   let program_parent = document.querySelector("#programmes ul");
 
   let info = {
     uni: UNIVERSITIES[programme.universityID].name,
     city: CITIES[UNIVERSITIES[programme.universityID].cityID].name,
+    sun_index: CITIES[UNIVERSITIES[programme.universityID].cityID].sun,
     country: COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name,
     level: LEVELS[programme.levelID - 1].name,
     subject: SUBJECTS[programme.subjectID].name,
@@ -227,16 +229,23 @@ function create_programme(programme) {
     background: `url(./media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal.length, 0)]}`,
   };
 
+  let sun_percent = percenter(info.sun_index, 365);
+
 
   parent_new_program.appendChild(child_new_program);
   parent_new_program.classList.add("programme");
   parent_new_program.style.backgroundImage = info.background
   program_parent.appendChild(parent_new_program);
+  child_sun.classList.add("bottom_programme")
+  parent_new_program.appendChild(child_sun)
 
   child_new_program.innerHTML = `<h1>${programme.name}</h1>
     <p>${info.uni}</p>
     <p>${info.city}, ${info.country}</p>
     <p>${info.level}, ${info.subject}, ${info.language}</p>`
+
+
+  child_sun.innerHTML = `<p>${info.city}, sun-index: ${info.sun_index} (${sun_percent}%)</p>`
 
   /*
  
