@@ -293,8 +293,6 @@ function update_programmes() {
   function picture_placer(array) {
     let random_country = COUNTRIES[get_random_number(COUNTRIES.length)].imagesNormal;
     let image_picker = random_country[get_random_number(random_country.length)]
-    console.log(random_country);
-    console.log(image_picker);
     array.style.backgroundImage = `url(./media/geo_images/${image_picker}`
   }
   array_each(top_images, picture_placer)
