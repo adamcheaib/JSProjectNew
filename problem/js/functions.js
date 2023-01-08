@@ -172,10 +172,9 @@ function create_countries_cities_filters() {
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
 function create_levels_filter() {
-
   function create_level(level) {
     const dom = create_filter_element({
-      parent: document.querySelector("#level_filter > ul"),
+      parent: document.querySelector(`#level_filter > ul`),
       class: "selected",
       textContent: level.name,
     });
@@ -325,7 +324,7 @@ function read_filters() {
     SIDE-EFFECTS
       The function creates arrays based on the selected filter-elements which then matches
       a program's city, university, level, subject and language.
-
+ 
     RETURN VALUE
       Returns an array of the programme-elements that match the "selected" filters.
   

@@ -22,10 +22,6 @@ document.querySelector("#search_field button").addEventListener("click", update_
 
 // Initialise programmes list by calling relevant function
 update_programmes();
-console.log(read_filters())
-let adam = document.querySelector("#country_filter li");
-console.log(adam);
-console.log(adam.dataset.id)
 
 // VG
 // Add Interaction of filter containers (select-deselect all filters in the container)
