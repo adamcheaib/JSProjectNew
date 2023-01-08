@@ -316,23 +316,34 @@ function update_programmes() {
 // Optional VG: Which parts of the function's code could be abstracted?
 //              Implement it
 function read_filters() {
+  /*
+    ARGUMENTS
+      The function does take any arguments.
+  
+    SIDE-EFFECTS
+      The function creates arrays based on the selected filter-elements which then matches
+      a program's city, university, level, subject and language.
 
+    RETURN VALUE
+      Returns an array of the programme-elements that match the "selected" filters.
+  
+  */
   const city_selected_dom = document.querySelectorAll("#country_filter li.selected");
 
   const city_id_selected = [];
   function callback_add_cityID(dom_element) {
     const id_as_integer = parseInt(dom_element.dataset.id);
-    city_id_selected.push(id_as_integer);
+    city_id_selected.push(id_as_integer); // konverterar selected elements dataID till interger.
   }
-  array_each(city_selected_dom, callback_add_cityID);
+  array_each(city_selected_dom, callback_add_cityID); // lägger till interger dataID i en array.
 
   const universities = [];
   for (let i = 0; i < city_id_selected.length; i++) {
     const city_id = city_id_selected[i];
     for (let ii = 0; ii < UNIVERSITIES.length; ii++) {
       const university = UNIVERSITIES[ii];
-      if (university.cityID === city_id) {
-        universities.push(university);
+      if (university.cityID === city_id) { // matchar cityID med en stads ID från förra arrayen.
+        universities.push(university); // lägger till dem i universities array
       }
     }
   }
@@ -342,15 +353,15 @@ function read_filters() {
     const university_id = university.id;
     for (let i = 0; i < PROGRAMMES.length; i++) {
       const programme = PROGRAMMES[i];
-      if (programme.universityID === university_id) {
-        programmes.push(programme);
+      if (programme.universityID === university_id) { //matchar programID med programmens ID
+        programmes.push(programme); // lägger till dem i programmes array.
       }
     }
   }
   array_each(universities, callback_add_programmes);
 
 
-
+  // Gör samma sak fast med levels dvs med id osv.
   const level_selected_dom = document.querySelectorAll("#level_filter li.selected");
   const level_id_selected = [];
   function callback_add_levelID(dom_element) {
@@ -365,7 +376,7 @@ function read_filters() {
   programmes = array_filter(programmes, test_function_level);
 
 
-
+  // Gör samma sak fast med language dvs med id osv.
   const language_selected_dom = document.querySelectorAll("#language_filter li.selected");
   const language_id_selected = [];
   function callback_add_languageID(dom_element) {
@@ -382,7 +393,7 @@ function read_filters() {
   programmes = array_filter(programmes, test_function_language);
 
 
-
+  // Gör samma sak fast emd subject dvs med ID osv.
   const subject_selected_dom = document.querySelectorAll("#subject_filter li.selected");
   const subject_id_selected = [];
   function callback_add_subjectID(dom_element) {
