@@ -119,7 +119,7 @@ function create_countries_cities_filters() {
           The function takes an object as argument.
     
         SIDE-EFFECTS
-          The function creates a container using an object from the COUNTRIES array.
+          The function creates a container (div) using an object from the COUNTRIES array.
     
         NO RETURN VALUE
     */
@@ -148,9 +148,9 @@ function create_countries_cities_filters() {
           The functions take an object as an argument.
     
         SIDE-EFFECTS
-          The function creates a filter-element by using the create_filter_element and the object's keys'
-          as values for the arguments in create_filter_element. The created filter elements are then
-          appended to the matching countries.
+          The function creates a filter-element by using the create_filter_element 
+          and the argument's (object) keys' values as values for the arguments in create_filter_element. 
+          The created filter elements are then appended to the matching countries.
     
         NO RETURN VALUE
     */
@@ -172,7 +172,6 @@ function create_countries_cities_filters() {
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
 function create_levels_filter() {
-
 
   function create_level(level) {
     const dom = create_filter_element({
