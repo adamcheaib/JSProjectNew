@@ -172,6 +172,8 @@ function create_countries_cities_filters() {
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
 function create_levels_filter() {
+
+
   function create_level(level) {
     const dom = create_filter_element({
       parent: document.querySelector("#level_filter > ul"),
@@ -286,6 +288,16 @@ function update_programmes() {
       NO RETURN VALUE
  
   */
+
+  let top_images = document.querySelectorAll("#top_images > div");
+  function picture_placer(array) {
+    let random_country = COUNTRIES[get_random_number(COUNTRIES.length)].imagesNormal;
+    let image_picker = random_country[get_random_number(random_country.length)]
+    console.log(random_country);
+    console.log(image_picker);
+    array.style.backgroundImage = `url(./media/geo_images/${image_picker}`
+  }
+  array_each(top_images, picture_placer)
 
 }
 
