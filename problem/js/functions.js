@@ -186,7 +186,14 @@ function create_countries_cities_filters() {
   
   */
 function create_filters() {
-
+  // array_each(LEVELS, function(level) {
+  //   let dom_level = create_filter_element({
+  //     parent: document.querySelector("#level_filter ul"),
+  //     class: "selected",
+  //     textContent: level.name,
+  //   });
+  //   dom_level.dataset.id = level.id;
+  // })   // SÅ SKALL MAN GÖRA
   for (let i = 0; i < LEVELS.length; i++) {
     let dom_level = create_filter_element({
       parent: document.querySelector("#level_filter ul"),
@@ -289,10 +296,12 @@ function update_programmes() {
   array_each(read_filters(), create_programme)
   let empty_string = document.querySelector("#programmes p");
   if (old_programs.innerHTML !== "") {
-    empty_string.style.display = "none"
+    empty_string.style.display = "none";
+  } else {
+    empty_string.style.display = "block";
   }
 
-  if (old_programs.innerHTML === "") { empty_string.style.display = "block" }
+  // if (old_programs.innerHTML === "") { empty_string.style.display = "block" }
 
   /*
       NO ARGUMENTS
