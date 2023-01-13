@@ -12,9 +12,12 @@
 
 */
 // Create Filter Elements
-create_filters()
-create_filters()
+// create_filters()
+// create_filters()
 create_countries_cities_filters();
+creator_of_all({ name: "level", arrayelement: LEVELS });
+creator_of_all({ name: "subject", arrayelement: SUBJECTS });
+creator_of_all({ name: "language", arrayelement: LANGUAGES });
 
 // Add Interaction of search field button
 document.querySelector("#search_field button").addEventListener("click", update_programmes);

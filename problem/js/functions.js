@@ -185,43 +185,85 @@ function create_countries_cities_filters() {
     NO RETURN VALUE
   
   */
-function create_filters() {
-  // array_each(LEVELS, function(level) {
-  //   let dom_level = create_filter_element({
-  //     parent: document.querySelector("#level_filter ul"),
-  //     class: "selected",
-  //     textContent: level.name,
-  //   });
-  //   dom_level.dataset.id = level.id;
-  // })   // SÅ SKALL MAN GÖRA
-  for (let i = 0; i < LEVELS.length; i++) {
-    let dom_level = create_filter_element({
-      parent: document.querySelector("#level_filter ul"),
+// function create_filters() {
+
+// function create_filter_elements(data) {
+//   function create_element(item) {
+//     let dom = create_filter_element({
+//       parent: document.querySelector(`#${data.name}_filter ul`),
+//       class: "selected",
+//       textContent: item.name
+//     });
+//     dom.dataset.id = item.id
+//   }
+//   array_each(data.item, create_element)
+// }
+// create_filter_elements({ name: "level", item: LEVELS });
+// create_filter_elements({ name: "subject", item: SUBJECTS });
+// create_filter_elements({ name: "language", item: LANGUAGES });
+
+function creator_of_all(object) {
+  function array_functioneer(arrayelement) {
+    let filter_elementado = create_filter_element({
+      parent: document.querySelector(`#${object.name}_filter ul`),
       class: "selected",
-      textContent: LEVELS[i].name,
+      textContent: arrayelement.name
     });
-    dom_level.dataset.id = LEVELS[i].id;
-  };
+    filter_elementado.dataset.id = arrayelement.id
+  }
+  array_each(object.arrayelement, array_functioneer)
+}
 
 
-  for (let i = 0; i < SUBJECTS.length; i++) {
-    let dom_subject = create_filter_element({
-      parent: document.querySelector("#subject_filter ul"),
-      class: "selected",
-      textContent: SUBJECTS[i].name,
-    });
-    dom_subject.dataset.id = SUBJECTS[i].id;
-  };
 
-  for (let i = 0; i < LANGUAGES.length; i++) {
-    let dom_language = create_filter_element({
-      parent: document.querySelector("#language_filter ul"),
-      class: "selected",
-      textContent: LANGUAGES[i].name,
-    });
-    dom_language.dataset.id = LANGUAGES[i].id;
-  };
-};
+
+// array_each(LEVELS, function (level) {
+//   let dom_level = create_filter_element({
+//     parent: document.querySelector(`#level_filter ul`),
+//     class: "selected",
+//     textContent: level.name,
+//   });
+//   dom_level.dataset.id = level.id;
+// })   // SÅ SKALL MAN GÖRA
+
+// function array_placer(array, placestring) {
+//   let dom_filter = create_filter_element({
+//     parent: document.querySelector(`${placestring}_filter ul`),
+//     class: "selected",
+//     textContent: array.name
+//   });
+//   dom_filter.dataset.id = array.id
+// }
+
+
+// for (let i = 0; i < LEVELS.length; i++) {
+//   let dom_level = create_filter_element({
+//     parent: document.querySelector("#level_filter ul"),
+//     class: "selected",
+//     textContent: LEVELS[i].name,
+//   });
+//   dom_level.dataset.id = LEVELS[i].id;
+// };
+
+
+// for (let i = 0; i < SUBJECTS.length; i++) {
+//   let dom_subject = create_filter_element({
+//     parent: document.querySelector("#subject_filter ul"),
+//     class: "selected",
+//     textContent: SUBJECTS[i].name,
+//   });
+//   dom_subject.dataset.id = SUBJECTS[i].id;
+// };
+
+// for (let i = 0; i < LANGUAGES.length; i++) {
+//   let dom_language = create_filter_element({
+//     parent: document.querySelector("#language_filter ul"),
+//     class: "selected",
+//     textContent: LANGUAGES[i].name,
+//   });
+//   dom_language.dataset.id = LANGUAGES[i].id;
+// };
+// };
 
 
 
